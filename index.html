@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.9">
-
-  <title>URL Shortener</title>
-  <style>
-    body {
-        background-color: pink;
-    }
-  </style>
-</head>
-<body>
-  <form>
-    <label for="url">Enter URL:</label>
-    <input type="text" id="url" name="url">
-    <br>
-    <button type="button" onclick="shortenURL()">Shorten</button>
-  </form>
-  <br>
-  <div id="output">
-    <p id="shortened"></p>
-    <button id="copyBtn" style="display:none" onclick="copyURL()">Copy</button>
-  </div>
-  <script>
-    function shortenURL() {
-      var url = document.getElementById("url").value;
-      // Use a URL shortening service, such as TinyURL or Bitly
-      fetch("https://tinyurl.com/api-create.php?url=" + url)
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("shortened").innerHTML = data;
-          document.getElementById("copyBtn").style.display = "block";
-        });
-    }
-
-    function copyURL() {
-      var shortURL = document.getElementById("shortened").innerHTML;
-      var el = document.createElement('textarea');
-      el.value = shortURL;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-      alert("Copied the short URL: " + shortURL);
-    }
-  </script>
-</body>
+  <head>
+    <title>Body Measurements</title>
+  </head>
+  <body>
+    <h1>Body Measurements</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Measurement</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Height</td>
+          <td>175 cm</td>
+        </tr>
+        <tr>
+          <td>Weight</td>
+          <td>65 kg</td>
+        </tr>
+        <tr>
+          <td>BMI</td>
+          <td>21.2</td>
+        </tr>
+        <tr>
+          <td>Waist circumference</td>
+          <td>80 cm</td>
+        </tr>
+        <tr>
+          <td>Hip circumference</td>
+          <td>95 cm</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
